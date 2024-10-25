@@ -6,11 +6,11 @@ import javax.swing.*;
 public class Game {
     JFrame window;
     Container con;
-    JPanel titleNamePanel, startButtonPanel, mainTextPanel;
+    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel;
     JLabel titleNameLabel;
     Font titleNameFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 30);
-    JButton startButton;
+    JButton startButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
 
     TitleScreenHandler tsHandler = new TitleScreenHandler();
@@ -57,25 +57,55 @@ public class Game {
     }
 
     public void createGameScreen() {
-        // Remove ou oculta os elementos da tela inicial
         titleNamePanel.setVisible(false);
         startButtonPanel.setVisible(false);
 
         // Painel principal de texto do jogo
         mainTextPanel = new JPanel();
         mainTextPanel.setBounds(100, 100, 600, 250); // ajusta as coordenadas
-        mainTextPanel.setBackground(Color.blue);
+        mainTextPanel.setBackground(Color.black);
 
-        mainTextArea = new JTextArea();
+        mainTextArea = new JTextArea("This main text area. This game is going to be great. I'm sure of it!");
         mainTextArea.setBounds(100, 100, 600, 250);
-        mainTextArea.setBackground(Color.blue);
+        mainTextArea.setBackground(Color.black);
         mainTextArea.setForeground(Color.white);
         mainTextArea.setFont(normalFont);
         mainTextArea.setLineWrap(true);
 
         mainTextPanel.add(mainTextArea);
         con.add(mainTextPanel);
-        
+
+        // Botões de escolha
+        choiceButtonPanel = new JPanel();
+        choiceButtonPanel.setBounds(250, 350, 300, 150);
+        choiceButtonPanel.setBackground(Color.BLACK);
+        choiceButtonPanel.setLayout(new GridLayout(4, 1)); // Exibe os botões em uma coluna
+        con.add(choiceButtonPanel);
+
+        choice1 = new JButton("Choice 1");
+        choice1.setBackground(Color.black);
+        choice1.setForeground(Color.white);
+        choice1.setFont(normalFont);
+        choiceButtonPanel.add(choice1);
+
+        choice2 = new JButton("Choice 2");
+        choice2.setBackground(Color.black);
+        choice2.setForeground(Color.white);
+        choice2.setFont(normalFont);
+        choiceButtonPanel.add(choice2);
+
+        choice3 = new JButton("Choice 3");
+        choice3.setBackground(Color.black);
+        choice3.setForeground(Color.white);
+        choice3.setFont(normalFont);
+        choiceButtonPanel.add(choice3);
+
+        choice4 = new JButton("Choice 4");
+        choice4.setBackground(Color.black);
+        choice4.setForeground(Color.white);
+        choice4.setFont(normalFont);
+        choiceButtonPanel.add(choice4);
+
         // Atualiza a interface para refletir as mudanças
         window.revalidate();
         window.repaint();
